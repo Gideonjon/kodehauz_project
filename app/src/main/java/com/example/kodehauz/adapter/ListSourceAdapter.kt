@@ -1,11 +1,13 @@
 package com.example.kodehauz.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kodehauz.ListNews
 import com.example.kodehauz.R
 import com.example.kodehauz.`interface`.ItemClickListener
 import com.example.kodehauz.adapter.ViewHolder.ListSourceViewHolder
@@ -32,7 +34,11 @@ class ListSourceAdapter(private val context: Context, private val website: Websi
 
             override fun onclick(view: View, position: Int) {
 
-                Toast.makeText(context, "Next Tutorial", Toast.LENGTH_SHORT).show()
+                val intent = Intent(context,ListNews::class.java)
+                intent.putExtra("source",website.sources!![position].id)
+                context.startActivity(intent)
+
+
             }
         })
 
